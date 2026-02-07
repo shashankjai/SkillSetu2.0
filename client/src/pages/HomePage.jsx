@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  LogIn, 
-  UserPlus, 
-  Sparkles, 
-  Users, 
-  Target, 
-  TrendingUp, 
+import {
+  LogIn,
+  UserPlus,
+  Sparkles,
+  Users,
+  Target,
+  TrendingUp,
   ArrowRight,
   Star,
   Zap,
   Globe,
   Shield,
-  Heart
+  Heart,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Footer from "../components/footer/Footer";
@@ -34,27 +34,27 @@ const Home = () => {
       icon: <Users className="w-8 h-8" />,
       title: "Global Community",
       description: "Join thousands of learners from around the world",
-      color: "from-blue-500 to-cyan-400"
+      color: "from-blue-500 to-cyan-400",
     },
     {
       icon: <Target className="w-8 h-8" />,
       title: "Smart Matching",
       description: "AI-powered skill matching for perfect connections",
-      color: "from-purple-500 to-pink-400"
+      color: "from-purple-500 to-pink-400",
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Growth Together",
       description: "Track progress and achieve goals collectively",
-      color: "from-emerald-500 to-green-400"
-    }
+      color: "from-emerald-500 to-green-400",
+    },
   ];
 
   const stats = [
     { number: "10K+", label: "Active Learners", icon: <Users /> },
     { number: "500+", label: "Skills Available", icon: <Zap /> },
     { number: "98%", label: "Satisfaction Rate", icon: <Star /> },
-    { number: "50+", label: "Countries", icon: <Globe /> }
+    { number: "50+", label: "Countries", icon: <Globe /> },
   ];
 
   return (
@@ -66,12 +66,12 @@ const Home = () => {
           animate={{
             x: [0, 100, 0],
             y: [0, 50, 0],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
         />
@@ -79,22 +79,22 @@ const Home = () => {
           animate={{
             x: [0, -100, 0],
             y: [0, -50, 0],
-            scale: [1, 1.1, 1]
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
         />
-        
+
         {/* Mouse Follow Effect */}
         <motion.div
           className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-r from-blue-500/5 to-purple-500/5 blur-3xl"
           animate={{
             x: mousePosition.x - 250,
-            y: mousePosition.y - 250
+            y: mousePosition.y - 250,
           }}
           transition={{ type: "spring", stiffness: 150, damping: 15 }}
         />
@@ -108,24 +108,27 @@ const Home = () => {
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
-              scale: 0
+              scale: 0,
             }}
             animate={{
               y: [null, -100],
               scale: [0, 1, 0],
-              opacity: [0, 1, 0]
+              opacity: [0, 1, 0],
             }}
             transition={{
               duration: Math.random() * 3 + 2,
               repeat: Infinity,
               delay: Math.random() * 5,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className={`absolute w-1 h-1 rounded-full ${
-              i % 4 === 0 ? 'bg-cyan-400' : 
-              i % 4 === 1 ? 'bg-purple-400' : 
-              i % 4 === 2 ? 'bg-emerald-400' : 
-              'bg-pink-400'
+              i % 4 === 0
+                ? "bg-cyan-400"
+                : i % 4 === 1
+                  ? "bg-purple-400"
+                  : i % 4 === 2
+                    ? "bg-emerald-400"
+                    : "bg-pink-400"
             }`}
           />
         ))}
@@ -149,7 +152,9 @@ const Home = () => {
               className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10 rounded-full mb-8"
             >
               <Sparkles className="w-5 h-5 text-cyan-400" />
-              <span className="text-cyan-300 font-medium">PREMIUM LEARNING PLATFORM</span>
+              <span className="text-cyan-300 font-medium">
+                PREMIUM LEARNING PLATFORM
+              </span>
               <Sparkles className="w-5 h-5 text-cyan-400" />
             </motion.div>
 
@@ -189,9 +194,9 @@ const Home = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              A revolutionary platform where knowledge flows freely, 
-              skills are exchanged, and communities grow together through 
-              collaborative learning.
+              A revolutionary platform where knowledge flows freely, skills are
+              exchanged, and communities grow together through collaborative
+              learning.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -201,7 +206,10 @@ const Home = () => {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link
                   to="/login"
                   className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl text-lg flex items-center gap-3 shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all"
@@ -213,7 +221,10 @@ const Home = () => {
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link
                   to="/register"
                   className="group px-8 py-4 bg-transparent text-cyan-300 font-bold rounded-2xl text-lg border-2 border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 transition-all flex items-center gap-3"
@@ -308,7 +319,9 @@ const Home = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-8 hover:border-cyan-500/30 transition-all h-full">
-                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6`}>
+                    <div
+                      className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6`}
+                    >
                       {feature.icon}
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">
@@ -358,7 +371,7 @@ const Home = () => {
             </h2>
 
             <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-              Join thousands of successful learners who transformed their skills 
+              Join thousands of successful learners who transformed their skills
               through our community
             </p>
 
@@ -388,16 +401,16 @@ const Home = () => {
       </div>
 
       {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        
-        .floating {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
+      <style>{`
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+`}</style>
     </div>
   );
 };

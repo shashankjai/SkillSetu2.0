@@ -2,9 +2,6 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
-  "engines": {
-    "node": "20.x"
-  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -20,7 +17,6 @@
     "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.7.0",
-    "@tailwindcss/postcss": "^4.1.4",
     "autoprefixer": "^10.4.21",
     "axios": "^1.9.0",
     "framer-motion": "^12.9.2",
