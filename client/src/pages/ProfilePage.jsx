@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { setNotifications } from "../redux/slices/notificationSlice";
 import Background from "../components/background/Background";
-import "../components/background/Background.css";
+import "../components/background/background.css";
 import Footer from "../components/footer/Footer";
 import defaultAvatar from "../assets/avatar.jpeg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
