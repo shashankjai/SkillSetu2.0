@@ -52,7 +52,7 @@ function App() {
           element={<PrivateRoute element={<ProfileSettingsPage />} />}
         />
 
-        {/* Admin Dashboard with Nested Routes */}
+        {/* Admin Dashboard with Nested Routes added */}
         <Route
           path="/admin"
           element={
