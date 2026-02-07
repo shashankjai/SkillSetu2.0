@@ -1,9 +1,9 @@
 ﻿[build]
   base = "client"
   publish = "client/dist"
-  command = "cd client && npm ci --legacy-peer-deps && npm run build"
+  command = "cd client && rm -rf node_modules package-lock.json && npm install --legacy-peer-deps --ignore-scripts && npm run build"
 
 [build.environment]
   NODE_VERSION = "20"
-  NPM_FLAGS = "--legacy-peer-deps"
-  ROLLUP_SKIP_NODE_NATIVE = "true"
+  NPM_FLAGS = "--legacy-peer-deps --ignore-scripts"
+  NPM_CONFIG_ROLLUP_IGNORE_PLATFORM = "false"
