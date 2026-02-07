@@ -20,7 +20,8 @@ import Background from "../components/background/Background";
 import "../components/background/Background.css";
 
 // Assets
-import profileImage from "../assets/profile.jpg";
+// Assets
+const profileImage = "/profile.jpg";
 
 const AboutUsPage = () => {
   useLayoutEffect(() => {
