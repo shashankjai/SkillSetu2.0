@@ -17,7 +17,7 @@ import {
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import Background from "../components/background/Background";
-import "../components/background/Background.css";
+
 
 // Assets
 // Assets

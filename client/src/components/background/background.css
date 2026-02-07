@@ -1,0 +1,19 @@
+@keyframes floatXY {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, -30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.shimmer {
+  filter: saturate(1.2);
+}
+
+.spark {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}

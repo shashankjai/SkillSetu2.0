@@ -2,16 +2,19 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaUsers, FaChartBar, FaFlag, FaUserShield, FaBolt, FaSignOutAlt } from 'react-icons/fa';
 
-const AdminSideBar = () => {
+const navItems = [
+  { to: 'users', label: 'Users', icon: <FaUsers /> },
+  { to: 'reports', label: 'Reports', icon: <FaFlag /> },
+  { to: 'analytics', label: 'Analytics', icon: <FaChartBar /> },
+  { to: 'engagement-analytics', label: 'Engagement Stats', icon: <FaBolt /> },
+  { to: 'profile', label: 'Profile', icon: <FaUserShield /> },
+];
+
+const AdminSidebar = () => {
   const navigate = useNavigate();
-  
-  const navItems = [
-    { to: 'users', label: 'Users', icon: FaUsers },
-    { to: 'reports', label: 'Reports', icon: FaFlag },
-    { to: 'analytics', label: 'Analytics', icon: FaChartBar },
-    { to: 'engagement-analytics', label: 'Engagement Stats', icon: FaBolt },
-    { to: 'profile', label: 'Profile', icon: FaUserShield },
-  ];
+  const token = localStorage.getItem('token');
+  const user = token ? JSON.parse(localStorage.getItem('user')) : null;
+  const isAdmin = user?.role === 'admin';
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -20,42 +23,44 @@ const AdminSideBar = () => {
   };
 
   return (
-    <aside className="w-64 min-h-screen bg-slate-900 border-r border-slate-700 p-6">
-      <div className="mb-8">
-        <h2 className="text-xl font-bold text-white">Admin Panel</h2>
-        <p className="text-slate-400 text-sm">SkillSetu Administration</p>
+    <aside className="w-64 bg-blue-900 text-white shadow-2xl min-h-screen flex flex-col justify-between">
+      <div>
+        <div className="p-6 text-xl font-extrabold tracking-wide border-b border-blue-700">
+          Admin Dashboard
+        </div>
+        <nav className="p-4 space-y-2">
+          {navItems.map(({ to, label, icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                `group flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-300 ease-in-out transform
+                 ${
+                   isActive
+                     ? 'bg-white text-blue-900 scale-105 shadow-md'
+                     : 'hover:bg-white hover:text-blue-900 hover:scale-105'
+                 }`
+              }
+            >
+              <span className="text-lg">{icon}</span>
+              <span className="text-md font-medium">{label}</span>
+            </NavLink>
+          ))}
+        </nav>
       </div>
-      
-      <nav className="space-y-2">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            className={({ isActive }) =>
-              `flex items-center gap-3 p-3 rounded-lg transition-colors ${
-                isActive
-                  ? 'bg-cyan-600 text-white'
-                  : 'text-slate-300 hover:bg-slate-800'
-              }`
-            }
-          >
-            <item.icon />
-            <span>{item.label}</span>
-          </NavLink>
-        ))}
-      </nav>
-      
-      <div className="mt-8 pt-6 border-t border-slate-700">
+
+      {/* Logout Button */}
+      {isAdmin && (
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 p-3 w-full text-slate-300 hover:bg-slate-800 rounded-lg transition-colors"
+          className="m-4 flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors"
         >
           <FaSignOutAlt />
           <span className="font-medium">Logout</span>
         </button>
-      </div>
+      )}
     </aside>
   );
 };
 
-export default AdminSideBar;
+export default AdminSidebar;
